@@ -1,0 +1,50 @@
+repos:
+  # --- General File Cleanup ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Removes any extra spaces at the end of lines
+      - id: trailing-whitespace
+      # Ensures every file ends with a single blank line
+      - id: end-of-file-fixer
+      # Verifies that YAML files are syntactically correct
+      - id: check-yaml
+      # Prevents you from accidentally committing very large files
+      - id: check-added-large-files
+
+  # --- Code Formatting ---
+  - repo: https://github.com/psf/black
+    rev: 24.1.1
+    hooks:
+      # Automatically reformats Python code to follow a strict style guide
+      - id: black
+
+  # --- Import Sorting ---
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      # Automatically sorts and groups Python imports alphabetically
+      - id: isort
+
+  # --- Style & Logic Linting ---
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      # Checks for PEP 8 styling issues and common coding errors
+      - id: flake8
+
+  # --- Static Type Checking ---
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      # Verifies that your type hints (like :int, :str) are used correctly
+      - id: mypy
+        additional_dependencies: []
+
+  # --- Security Scanning ---
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      # Scans code for common security vulnerabilities (e.g., hardcoded passwords)
+      - id: bandit
+        args: ["-iii", "-ll"]
