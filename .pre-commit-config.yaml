@@ -48,3 +48,12 @@ repos:
       # Scans code for common security vulnerabilities (e.g., hardcoded passwords)
       - id: bandit
         args: ["-iii", "-ll"]
+  # --- Odoo Specific Hooks (OCA) ---
+  - repo: https://github.com/OCA/odoo-pre-commit-hooks
+    rev: v0.0.33  # Latest stable version
+    hooks:
+      # Main hook for Odoo modules (XML, Manifest, Model Checks, etc.)
+      - id: oca-checks-odoo-module
+      # Main hook for Odoo translation files (.po)
+      - id: oca-checks-po
+        args: ["--disable", "po-pretty-format"]
