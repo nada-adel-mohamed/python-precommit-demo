@@ -1,9 +1,11 @@
 # Odoo: XML & PO Validator
 
 ### What it does:
+
 Odoo relies heavily on XML for views and PO files for translations. This hook ensures these files are not broken.
 
 ### Example ❌ (Bad XML)
+
 ```xml
 <record id="my_view" model="ir.ui.view">
     <field name="name">my.view</field>
@@ -17,6 +19,7 @@ Odoo relies heavily on XML for views and PO files for translations. This hook en
 ```
 
 ### Example ✅ (Correct XML)
+
 ```xml
 <record id="my_view" model="ir.ui.view">
     <field name="name">my.view</field>
@@ -30,4 +33,5 @@ Odoo relies heavily on XML for views and PO files for translations. This hook en
 ```
 
 ---
+
 **How to fix:** Check the file mentioned in the error log and fix the broken XML syntax.

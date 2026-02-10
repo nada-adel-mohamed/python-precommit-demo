@@ -1,9 +1,11 @@
 # Odoo: Manifest Checker
 
 ### What it does:
+
 Validates your `__manifest__.py` file to ensure it follows Odoo's required format. It catches syntax errors and missing mandatory keys.
 
 ### Example ❌ (Bad Code)
+
 ```python
 # __manifest__.py
 {
@@ -14,6 +16,7 @@ Validates your `__manifest__.py` file to ensure it follows Odoo's required forma
 ```
 
 ### Example ✅ (Correct Code)
+
 ```python
 # __manifest__.py
 {
@@ -30,4 +33,5 @@ Validates your `__manifest__.py` file to ensure it follows Odoo's required forma
 ```
 
 ---
+
 **How to fix:** Fix the syntax or missing keys in your `__manifest__.py`.
