@@ -11,6 +11,10 @@ repos:
       - id: check-yaml
       # Prevents you from accidentally committing very large files
       - id: check-added-large-files
+      # Checks for files that would conflict on case-insensitive filesystems
+      - id: check-case-conflict
+      # Checks for merge conflict markers
+      - id: check-merge-conflict
 
   # --- Code Formatting ---
   - repo: https://github.com/psf/black
@@ -33,14 +37,6 @@ repos:
       # Checks for PEP 8 styling issues and common coding errors
       - id: flake8
 
-  # --- Static Type Checking ---
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      # Verifies that your type hints (like :int, :str) are used correctly
-      - id: mypy
-        additional_dependencies: []
-
   # --- Security Scanning ---
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.7
@@ -48,12 +44,25 @@ repos:
       # Scans code for common security vulnerabilities (e.g., hardcoded passwords)
       - id: bandit
         args: ["-iii", "-ll"]
-  # --- Odoo Specific Hooks (OCA) ---
+
+  # ===========================================================
+  # --- OCA Odoo-Specific Hooks ---
+  # ===========================================================
+
+  # --- OCA Pre-commit Hooks (XML, CSV, Manifest checks) ---
   - repo: https://github.com/OCA/odoo-pre-commit-hooks
-    rev: v0.0.33  # Latest stable version
+    rev: v0.2.20
     hooks:
-      # Main hook for Odoo modules (XML, Manifest, Model Checks, etc.)
+      # Checks for py, csv, and xml files of Odoo modules
       - id: oca-checks-odoo-module
-      # Main hook for Odoo translation files (.po)
+      # Checks for .po/.pot translation files
       - id: oca-checks-po
-        args: ["--disable", "po-pretty-format"]
+        args: ["--disable=po-pretty-format"]
+
+  # --- Pylint with Odoo Plugin (Odoo-specific Python linting) ---
+  - repo: https://github.com/OCA/pylint-odoo
+    rev: v10.0.0
+    hooks:
+      - id: pylint_odoo
+        args:
+          - --rcfile=.pylintrc

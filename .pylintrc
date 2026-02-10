@@ -1,0 +1,17 @@
+[MASTER]
+load-plugins = pylint_odoo
+score = n
+
+[ODOOLINT]
+# Specify the Odoo version for version-specific checks
+valid-odoo-versions = 18.0
+
+[MESSAGES CONTROL]
+# Enable only Odoo-specific checks (disable everything else from pylint)
+disable = all
+enable = odoolint
+
+# If you want to disable specific Odoo checks, uncomment and add them below:
+# disable =
+#     missing-readme,
+#     manifest-deprecated-key,
