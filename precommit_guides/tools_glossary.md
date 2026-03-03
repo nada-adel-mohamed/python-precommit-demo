@@ -1,4 +1,4 @@
-# Odoo 18 Pre-commit: Tools Glossary
+as# Odoo 18 Pre-commit: Tools Glossary
 
 This document provides a quick reference for every tool included in your new Odoo 18 Gold Standard environment.
 

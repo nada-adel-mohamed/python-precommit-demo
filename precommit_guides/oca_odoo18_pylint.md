@@ -16,6 +16,7 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         print("Order confirmed!")
+
         return super().action_confirm()
 ```
 
