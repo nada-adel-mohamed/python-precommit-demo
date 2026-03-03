@@ -24,6 +24,7 @@ class TestModel(models.Model):
 
         # FIX: Used self.env._ and lazy formatting for Odoo 18+
         msg = self.env._("Testing translation for %s", self.name)
+
         _logger.info(msg)
 
         return True
