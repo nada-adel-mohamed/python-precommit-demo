@@ -6,4 +6,7 @@
     "website": "https://github.com/OCA/python-precommit-demo",
     "license": "LGPL-3",
     "depends": ["base"],
+    "data": [
+        "views/test_model_views.xml",
+    ],
 }
