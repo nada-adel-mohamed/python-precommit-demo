@@ -6,9 +6,33 @@ score = n
 valid-odoo-versions = 18.0
 
 [MESSAGES CONTROL]
-disable = all
-enable = odoolint,
-    unrecognized-option
+disable =
+    # ruff already handles these
+    line-too-long,
+    wrong-import-order,
+
+    # unavoidable — can't find 'odoo' in lint environment
+    import-error,
+
+    # normal Odoo pattern — calling _private methods cross-model
+    protected-access,
+
+    # Odoo models often only define fields, no public methods
+    too-few-public-methods,
+
+    # webhook handler is inherently branchy; refactoring would hurt readability
+    too-many-locals,
+    too-many-branches,
+    too-many-statements,
+
+    # broad except is needed around external API calls that can fail any way
+    broad-exception-caught,
+
+    # OCA-only — requires "Odoo Community Association (OCA)" as author
+    manifest-required-author,
+
+    # __manifest__.py is a bare dict — cannot have a docstring
+    missing-module-docstring
 
 [REPORTS]
 output-format = colorized
