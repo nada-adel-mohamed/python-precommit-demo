@@ -1,5 +1,5 @@
-from odoo import fields, models
 import logging
+from odoo import fields, models
 
 
 _logger = logging.getLogger(__name__)
@@ -27,5 +27,3 @@ class TestModel(models.Model):
         msg = self.env._("Testing translation for %s", self.name)
 
         _logger.info(msg)
-
-        return True
