@@ -1,5 +1,4 @@
 from odoo import fields, models
-
 import logging
 
 
