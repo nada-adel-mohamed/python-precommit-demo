@@ -17,11 +17,11 @@ jobs:
       - name: Run Claude Code Review
         uses: anthropics/claude-code-action@beta
         with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           direct_prompt: |
             Review this PR and post a comment with:
             - Summary of changes
-            - Bugs found
-            - Security issues
-            - Suggestions for improvement
+            - Bugs found (if none write "None")
+            - Security issues (if none write "None")
+            - Suggestions for improvement (if none write "None")
