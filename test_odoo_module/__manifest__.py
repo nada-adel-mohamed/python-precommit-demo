@@ -1,12 +1,16 @@
 {
     "name": "Test Odoo Module",
-    "summary": "A module to test pre-commit hooks",
+    "summary": "A module to test pre-commit hooks v2",
     "version": "18.0.1.0.0",
     "category": "Extra Tools",
     "website": "https://github.com/OCA/python-precommit-demo",
     "license": "LGPL-3",
     "depends": ["base"],
+    "external_dependencies": {
+        "python": ["requests"],
+    },
     "data": [
         "views/test_model_views.xml",
     ],
+    "installable": True,
 }
