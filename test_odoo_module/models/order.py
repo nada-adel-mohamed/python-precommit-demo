@@ -31,6 +31,5 @@ class TestOrder(models.Model):
     def action_confirm(self):
         """Confirm the order."""
         self.write({"state": "confirmed"})
-        # BUG: Undefined variable 'undefined_var' - will cause NameError
-        _logger.info("Order %s confirmed by %s", self.name, undefined_var)
+        _logger.info("Order %s confirmed", self.name)
         return True

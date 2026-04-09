@@ -15,9 +15,9 @@ class TestProduct(models.Model):
     price = fields.Float(string="Price", required=True)
     active = fields.Boolean(default=True)
 
-    def calculate_tax(self):
+    def calculate_tax(self, tax_rate=0.1):
         """Calculate tax on price."""
-        # BUG: Division by zero when tax_rate is 0
-        tax_rate = 0
-        tax = self.price / tax_rate
+        if tax_rate == 0:
+            return 0.0
+        tax = self.price * tax_rate
         return tax
