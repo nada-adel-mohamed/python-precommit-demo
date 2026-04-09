@@ -10,7 +10,21 @@ class TestCategory(models.Model):
 
     _name = "test.category"
     _description = "Test Category"
+    _order = "name asc"
 
     name = fields.Char(string="Category Name", required=True)
     description = fields.Text(string="Description")
+    code = fields.Char(string="Category Code", unique=True)
     active = fields.Boolean(default=True)
+
+    def action_archive(self):
+        """Archive the category."""
+        self.write({"active": False})
+        _logger.info("Category %s archived", self.name)
+        return True
+
+    def action_unarchive(self):
+        """Unarchive the category."""
+        self.write({"active": True})
+        _logger.info("Category %s unarchived", self.name)
+        return True
