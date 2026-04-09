@@ -19,3 +19,10 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          direct_prompt: |
+            Review this PR and always post a comment with:
+            - Summary of changes
+            - Bugs found
+            - Security issues
+            - Suggestions for improvement
+            Always post a review even if code looks clean.
